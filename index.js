@@ -31,10 +31,9 @@ function replaceTemplate(temp, product) {
 }
 
 const server = http.createServer((req, res) => {
-  const pathName = req.url;
-
+  const pathname = req.url;
   // overview PAGE
-  if (pathName === '/' || pathName === '/overview') {
+  if (pathname === '/' || pathname === '/overview') {
     res.writeHead(200, {
       'content-type': 'text/html',
     });
@@ -43,11 +42,11 @@ const server = http.createServer((req, res) => {
     res.end(output);
 
     // product PAGE
-  } else if (pathName === '/product') {
+  } else if (pathname === '/product') {
     res.end('This is the product');
 
     // api
-  } else if (pathName === '/api') {
+  } else if (pathname === '/api') {
     res.writeHead(200, {
       'content-type': 'application/json',
     });
